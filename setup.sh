@@ -3,10 +3,10 @@
 # 1. Enable camera and serial interfaces: sudo raspi-config
 # 2. Run this script: sudo ./setup.sh
 
-
 set -e
 
 cd /home/pi
+
 sudo apt-get install -y git
 git clone https://github.com/maxbbraun/uvc-gadget
 cd uvc-gadget
