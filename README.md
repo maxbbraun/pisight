@@ -4,7 +4,7 @@ Why would one put a Raspberry Pi into an Apple iSight? Find out [on Medium](http
 
 ## Hardware
 
-![PiSight top view](PiSight_Top.jpg)
+![PiSight top view](PiSight_top.jpg)
 
 | Part | Info | Price (2020) |
 | :- | :- | -: |
@@ -20,7 +20,7 @@ Why would one put a Raspberry Pi into an Apple iSight? Find out [on Medium](http
 
 ## Software
 
-![PiSight side view](PiSight_Side.jpg)
+![PiSight side view](PiSight_side.jpg)
 
 The PiSight camera implements the [UVC standard](https://en.wikipedia.org/wiki/USB_video_device_class) via the [Gadget API](https://www.kernel.org/doc/html/latest/driver-api/usb/gadget.html), which turns the Raspberry Pi and camera into a plug-and-play USB webcam. I used the instructions in [David Hunt](https://github.com/climberhunt)'s [blog post](http://www.davidhunt.ie/raspberry-pi-zero-with-pi-camera-as-usb-webcam/), with a few modifications in [my own fork](https://github.com/maxbbraun/uvc-gadget) of `uvc-gadget`.
 
