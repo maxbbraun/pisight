@@ -16,7 +16,7 @@ I put a Raspberry Pi inside an Apple iSight. You can read more about the PiSight
 | O-ring | Covers the gap around the lens | [$6.16 for 50](https://www.mcmaster.com/9262K562/) |
 | Raspberry Pi Zero camera cable | A few options, but the 15 cm long narrow ones seem to work best | [$3.49](https://www.waveshare.com/raspberry-pi-zero-v1.3-camera-cable.htm) |
 | Micro-USB cable | Many options, just need to fit the iSight adapter | [$8.99](https://www.amazon.com/Anker-Powerline-Micro-USB-Smartphones/dp/B012VZT5IO/) |
-| 3D-printed frame | Use [`PiSight.stl`](PiSight.stl) or [`PiSight.step`](PiSight.step), cost varies significantly depending on material quality | [$50 to $200](https://www.fictiv.com) |
+| 3D-printed frame | Use [`PiSight.stl`](PiSight.stl) or [`PiSight.step`](PiSight.step), cost varies significantly depending on material quality. Dimensions measured in `mm`.  | [$50 to $200](https://www.fictiv.com) |
 
 ![PiSight rendered side view](render-side.jpg)
 
