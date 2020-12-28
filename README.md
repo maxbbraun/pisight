@@ -32,4 +32,6 @@ cd pisight
 sudo ./setup.sh
 ```
 
+**Update:** There is now an alternative setup option thanks to the [`showmewebcam`](https://github.com/showmewebcam/showmewebcam) project, which is better maintained and provides pre-built optimized images (provided you don't mind seeing _Piwebcam_ instead of _PiSight_ in settings).
+
 ![PiSight in Zoom settings](zoom-settings.gif)
