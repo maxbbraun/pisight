@@ -1,0 +1,14 @@
+Description=UVC Gadget Setup Service
+After=sys-kernel-config.mount
+Requires=sys-kernel-config.mount
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/rpi-uvc-gadget.sh
+
+[Install]
+WantedBy=multi-user.target
+Enable & start:sudo systemctl daemon-reload
+sudo systemctl enable uvc-gadget.service
+sudo systemctl start uvc-gadget.service
