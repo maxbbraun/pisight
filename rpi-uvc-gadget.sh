@@ -170,4 +170,4 @@ fi
 # the first available camera on the system. All cameras will be listed,
 # you can re-run with -c n to select camera n or -c ID to select via
 # the camera ID.
-uvc-gadget -c 0 uvc.0
+uvc-gadget -c 0 uvc.0 &
