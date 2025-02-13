@@ -4,11 +4,12 @@
 
 CONFIGFS="/sys/kernel/config"
 GADGET="$CONFIGFS/usb_gadget"
-VID="0x0525"
-PID="0xa4a2"
-SERIAL="0123456789"
-MANUF=$(hostname)
-PRODUCT="UVC Gadget"
+VID="0x05ac"
+PID="0xdead"
+DEVICE="0x0001"
+SERIAL="1"
+MANUF="Apple"
+PRODUCT="PiSight"
 BOARD=$(strings /proc/device-tree/model)
 UDC=`ls /sys/class/udc` # will identify the 'first' UDC
 
@@ -140,6 +141,7 @@ if
 	echo "Setting Vendor and Product ID's"
 	echo $VID > idVendor
 	echo $PID > idProduct
+	echo $DEVICE > bcdDevice
 	echo "OK"
 
 	echo "Setting English strings"
