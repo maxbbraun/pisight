@@ -22,16 +22,14 @@ I put a Raspberry Pi inside an Apple iSight. You can read more about the PiSight
 
 ## Software
 
-The PiSight camera implements the [UVC standard](https://en.wikipedia.org/wiki/USB_video_device_class) via the [Gadget API](https://www.kernel.org/doc/html/latest/driver-api/usb/gadget.html), which turns the Raspberry Pi and camera into a plug-and-play USB webcam. I used the instructions in [David Hunt](https://github.com/climberhunt)'s [blog post](http://www.davidhunt.ie/raspberry-pi-zero-with-pi-camera-as-usb-webcam/), with a few modifications in [my own fork](https://github.com/maxbbraun/uvc-gadget) of `uvc-gadget`.
+The PiSight camera implements the [UVC standard](https://en.wikipedia.org/wiki/USB_video_device_class) via the [Gadget API](https://www.kernel.org/doc/html/latest/driver-api/usb/gadget.html), which turns the Raspberry Pi and camera into a plug-and-play USB webcam.
 
-I consolidated these steps into a [setup script](setup.sh), so you simply need to install [Raspberry Pi OS](https://www.raspberrypi.org/downloads/raspberry-pi-os/), enable the camera and serial interfaces via `raspi-config`, and then run:
+Simply install [Raspberry Pi OS](https://www.raspberrypi.org/downloads/raspberry-pi-os/) (the Lite version is enough) and then run:
 
 ```bash
 git clone https://github.com/maxbbraun/pisight
 cd pisight
 sudo ./setup.sh
 ```
-
-**Update:** There is now an alternative setup option thanks to the [`showmewebcam`](https://github.com/showmewebcam/showmewebcam) project, which is better maintained and provides pre-built optimized images (provided you don't mind seeing _Piwebcam_ instead of _PiSight_ in settings).
 
 ![PiSight in Zoom settings](zoom-settings.gif)

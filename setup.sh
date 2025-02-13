@@ -1,22 +1,22 @@
 #!/bin/bash
 
-# 1. Enable camera and serial interfaces: sudo raspi-config
-# 2. Run this script: sudo ./setup.sh
-
 set -e
 
+echo "dtoverlay=dwc2,dr_mode=otg" | tee -a /boot/firmware/config.txt
+
 cd /home/pi
+sudo apt install -y git meson libcamera-dev libjpeg-dev
+git clone https://gitlab.freedesktop.org/camera/uvc-gadget.git
 
-git clone https://github.com/maxbbraun/uvc-gadget
-cd uvc-gadget
+cd /home/pi/uvc-gadget
+make uvc-gadget
+cd build
+meson install
+ldconfig
 
-make
-
-sudo cp piwebcam.service /etc/systemd/system/
-sudo systemctl enable piwebcam
-
-sudo sed -i 's/^console=\(.*\)$/\1 modules-load=dwc2,libcomposite/' /boot/cmdline.txt
-
-printf "\ndtoverlay=dwc2\n" | sudo tee -a /boot/config.txt
-
-sudo ln -s /lib/systemd/system/getty@.service /etc/systemd/system/getty.target.wants/getty@ttyGS0.service
+chmod +x /home/pi/pisight/rpi-uvc-gadget.sh
+sudo cp /home/pi/pisight/rpi-uvc-gadget.sh /usr/local/bin/rpi-uvc-gadget.sh
+sudo cp /home/pi/pisight/uvc-gadget.service /etc/systemd/system/uvc-gadget.service
+sudo systemctl daemon-reload
+sudo systemctl enable uvc-gadget.service
+sudo systemctl start uvc-gadget.service
