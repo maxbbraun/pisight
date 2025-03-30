@@ -44,6 +44,7 @@ create_uvc() {
 
 	echo "	Creating UVC gadget functionality : $FUNCTION"
 	mkdir functions/$FUNCTION
+ 	echo -n $PRODUCT | sudo tee functions/$FUNCTION/function_name
 
 	create_frame $FUNCTION 640 480 uncompressed u "333333
 416667
