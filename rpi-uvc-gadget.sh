@@ -4,11 +4,15 @@
 
 CONFIGFS="/sys/kernel/config"
 GADGET="$CONFIGFS/usb_gadget"
-VID="0x05ac"
-PID="0xdead"
-DEVICE="0x0001"
+VID="0x1d6b"            # Linux Foundation VID; avoids Apple's VID being treated like internal camera hardware.
+PID="0x0104"            # Linux multifunction composite gadget PID; reported working in closed-display mode.
+DEVICE="0x0100"         # bcdDevice 1.00 for the generic Linux gadget identity.
+DEVICE_CLASS="0xef"     # Miscellaneous device class, required for Interface Association Descriptors.
+DEVICE_SUBCLASS="0x02"  # Common class subclass used with Interface Association Descriptors.
+DEVICE_PROTOCOL="0x01"  # IAD protocol so hosts group UVC control and streaming interfaces.
+CONFIG_ATTRS="0xc0"     # USB required bit plus self-powered bit; matches the working clamshell report.
 SERIAL="1"
-MANUF="Apple"
+MANUF="Braun"
 PRODUCT="PiSight"
 BOARD=$(strings /proc/device-tree/model)
 UDC=`ls /sys/class/udc` # will identify the 'first' UDC
@@ -143,6 +147,9 @@ if
 	echo $VID > idVendor
 	echo $PID > idProduct
 	echo $DEVICE > bcdDevice
+	echo $DEVICE_CLASS > bDeviceClass
+	echo $DEVICE_SUBCLASS > bDeviceSubClass
+	echo $DEVICE_PROTOCOL > bDeviceProtocol
 	echo "OK"
 
 	echo "Setting English strings"
@@ -154,6 +161,7 @@ if
 
 	echo "Creating Config"
 	mkdir configs/c.1
+	echo $CONFIG_ATTRS > configs/c.1/bmAttributes
 	mkdir configs/c.1/strings/0x409
 
 	echo "Creating functions..."
